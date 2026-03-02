@@ -1,0 +1,5 @@
+{
+  "name": "POX AI",
+  "description": "A professional AI-powered chatbot application supporting Arabic and English.",
+  "requestFramePermissions": ["microphone"]
+}

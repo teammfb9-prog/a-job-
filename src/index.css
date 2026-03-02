@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Alexandria:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Alexandria", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+@layer base {
+  :root {
+    --bg: #f4f7fb;
+    --fg: #0f172a;
+    --border: #e2e8f0;
+    --muted: #ffffff;
+    --muted-fg: #64748b;
+    --accent: #2563eb;
+    --accent-fg: #ffffff;
+    --bubble-user: #2563eb;
+    --bubble-user-fg: #ffffff;
+    --bubble-model: #ffffff;
+    --bubble-model-fg: #0f172a;
+    --send-btn: #2563eb;
+  }
+  .dark {
+    --bg: #020617;
+    --fg: #f8fafc;
+    --border: #1e293b;
+    --muted: #0f172a;
+    --muted-fg: #94a3b8;
+    --accent: #3b82f6;
+    --accent-fg: #ffffff;
+    --bubble-user: #3b82f6;
+    --bubble-user-fg: #ffffff;
+    --bubble-model: #0f172a;
+    --bubble-model-fg: #f8fafc;
+    --send-btn: #3b82f6;
+  }
+}
+
+body {
+  font-family: "Alexandria", "Inter", sans-serif;
+  background-color: var(--bg);
+  color: var(--fg);
+  overflow: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  background-image: radial-gradient(circle at 50% 0%, rgba(37, 99, 235, 0.05) 0%, transparent 50%);
+}
+
+.dark body {
+  background-image: radial-gradient(circle at 50% 0%, rgba(59, 130, 246, 0.1) 0%, transparent 50%);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--muted-fg);
+}
+
+.markdown-body {
+  @apply text-sm md:text-base leading-relaxed;
+}
+.markdown-body p {
+  @apply mb-3 last:mb-0;
+}
+.markdown-body ul {
+  @apply list-disc list-inside mb-4 space-y-1;
+}
+.markdown-body ol {
+  @apply list-decimal list-inside mb-4 space-y-1;
+}
+.markdown-body a {
+  @apply underline text-[var(--accent)];
+}
+.markdown-body strong {
+  @apply font-semibold;
+}
+
